@@ -8,6 +8,7 @@ import { TrackerPage } from './tracker.page';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { Event } from '@angular/router';
+import { AuthService } from 'src/app/firebase/auth.service';
 
 // Angular Material modules
 import { MatCardModule } from '@angular/material/card';
@@ -24,6 +25,7 @@ import { MatIconModule } from '@angular/material/icon';
     FormsModule,
     IonicModule,
     TrackerPageRoutingModule,
+
     // Angular Material Modules
     MatCardModule,
     MatFormFieldModule,

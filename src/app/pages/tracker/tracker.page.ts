@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/firebase/auth.service';
 
 @Component({
   selector: 'app-tracker',
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./tracker.page.scss'],
 })
 export class TrackerPage implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
   // Define la fecha para el calendario
   viewDate: Date = new Date(); // Fecha actual
   ngOnInit() {}
@@ -18,5 +19,15 @@ export class TrackerPage implements OnInit {
   }
   onDayClicked(event: any) {
     console.log('Día seleccionado:', event.date);
+  }
+
+  async logout() {
+    try {
+      await this.authService.logout();
+      console.log('Sesión cerrada correctamente');
+      this.router.navigate(['/login']);
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
   }
 }

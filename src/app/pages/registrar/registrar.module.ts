@@ -7,8 +7,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -22,8 +20,7 @@ import { RegistrarPage } from './registrar.page';
     FormsModule,
     IonicModule,
     RegistrarPageRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
+
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
