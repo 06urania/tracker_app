@@ -25,6 +25,11 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'tracker',
+    loadChildren: () =>
+      import('./pages/tracker/tracker.module').then((m) => m.TrackerPageModule),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./pages/not-found/not-found.module').then(
