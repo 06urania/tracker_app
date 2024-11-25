@@ -30,6 +30,11 @@ const routes: Routes = [
       import('./pages/tracker/tracker.module').then((m) => m.TrackerPageModule),
   },
   {
+    path: 'form',
+    loadChildren: () =>
+      import('./pages/form/form.module').then((m) => m.FormPageModule),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./pages/not-found/not-found.module').then(

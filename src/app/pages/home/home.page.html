@@ -1,17 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Inicio</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="ion-padding">
+<ion-content class="ion-padding inicio-content">
   <div class="ion-text-center">
-    <h2>Bienvenido</h2>
-    <ion-button routerLink="/login" expand="block" class="ion-margin-bottom">
-      Iniciar Sesión
-    </ion-button>
-    <ion-button routerLink="/registrar" expand="block">
-      Registrarse
-    </ion-button>
+    <h1 class="welcome-text">¡Bienvenido!</h1>
+    <p class="subtitle-text">
+      Comienza tu viaje hacia tu auto cuidado y bienestar.
+    </p>
+
+    <div class="button-group">
+      <ion-button
+        routerLink="/login"
+        expand="block"
+        color="primary"
+        class="custom-button"
+      >
+        Iniciar Sesión
+      </ion-button>
+
+      <ion-button
+        routerLink="/registrar"
+        expand="block"
+        fill="outline"
+        color="secondary"
+        class="custom-button"
+      >
+        Registrarse
+      </ion-button>
+    </div>
   </div>
 </ion-content>

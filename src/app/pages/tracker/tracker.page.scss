@@ -1,0 +1,11 @@
+.calendar-container {
+  max-width: 100%; /* Evita que el calendario se desborde */
+  overflow-x: auto; /* Permite scroll horizontal si es necesario */
+  margin: 0 auto; /* Centra el calendario */
+}
+
+mwl-calendar-month-view {
+  width: 100%;
+  max-width: 400px; /* Ajusta el tamaño máximo del calendario */
+  margin: auto;
+}

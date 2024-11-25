@@ -1,85 +1,49 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>Iniciar Sesión</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="login-container">
-    <!-- Formulario de inicio de sesión -->
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>¡Bienvenido!</ion-card-title>
-        <ion-card-subtitle
-          >Por favor, ingresa tus datos para continuar</ion-card-subtitle
-        >
-      </ion-card-header>
+<ion-content class="ion-padding">
+  <form (submit)="login()">
+    <ion-item>
+      <ion-label position="floating">Correo Electrónico</ion-label>
+      <ion-input
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        required
+        autocomplete="email"
+      ></ion-input>
+    </ion-item>
 
-      <ion-card-content>
-        <!-- Campo de correo electrónico -->
-        <ion-item>
-          <ion-label position="floating">Correo Electrónico</ion-label>
-          <ion-input
-            type="email"
-            [(ngModel)]="email"
-            required
-            placeholder="ejemplo@correo.com"
-          ></ion-input>
-        </ion-item>
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        required
+        autocomplete="current-password"
+      ></ion-input>
+    </ion-item>
 
-        <!-- Campo de contraseña -->
-        <ion-item>
-          <ion-label position="floating">Contraseña</ion-label>
-          <ion-input
-            type="password"
-            [(ngModel)]="password"
-            required
-            placeholder="Ingresa tu contraseña"
-          ></ion-input>
-        </ion-item>
+    <ion-button
+      expand="block"
+      type="submit"
+      color="primary"
+      class="ion-margin-top"
+    >
+      Iniciar Sesión
+    </ion-button>
+  </form>
 
-        <!-- Botón de iniciar sesión -->
-        <div class="button-container">
-          <ion-button expand="block" color="primary" (click)="login()">
-            Iniciar Sesión
-          </ion-button>
-        </div>
-
-        <!-- Enlace para recuperar la contraseña -->
-        <div class="link-container">
-          <ion-text color="medium">
-            <p>
-              ¿Olvidaste tu contraseña?
-              <a href="/reset-password">Recupérala aquí</a>
-            </p>
-          </ion-text>
-        </div>
-      </ion-card-content>
-    </ion-card>
-  </div>
-
-  <ion-button expand="block" routerLink="/home" fill="clear">
+  <ion-button expand="block" routerLink="/home" fill="clear" color="medium">
     Volver al inicio
   </ion-button>
 </ion-content>
-
-<!-- Estilos adicionales -->
-<style>
-  .login-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding: 16px;
-  }
-
-  .button-container {
-    margin-top: 20px;
-  }
-
-  .link-container {
-    text-align: center;
-    margin-top: 10px;
-  }
-</style>
