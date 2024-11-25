@@ -12,15 +12,20 @@
 
 <ion-content class="ion-padding">
   <form (submit)="submitEntry()">
+    <!-- Estado de ánimo -->
     <ion-item>
       <ion-label>Estado de ánimo</ion-label>
       <ion-select [(ngModel)]="entry.mood" name="mood" placeholder="Selecciona">
-        <ion-select-option value="feliz">Feliz</ion-select-option>
-        <ion-select-option value="triste">Triste</ion-select-option>
-        <ion-select-option value="estresado">Estresado</ion-select-option>
+        <ion-select-option value="feliz ">Feliz (ʘᴥʘ)</ion-select-option>
+        <ion-select-option value="triste ">Triste (T⌓T)</ion-select-option>
+        <ion-select-option value="estresado "
+          >Estresado (・﹏・)</ion-select-option
+        >
+        <ion-select-option value="neutral ">neutral (◕‿◕)</ion-select-option>
       </ion-select>
     </ion-item>
 
+    <!-- Horas dormidas -->
     <ion-item>
       <ion-label>Horas dormidas</ion-label>
       <ion-input
@@ -31,6 +36,7 @@
       ></ion-input>
     </ion-item>
 
+    <!-- Nivel de concentración -->
     <ion-item>
       <ion-label>Nivel de concentración</ion-label>
       <ion-range
@@ -44,11 +50,56 @@
       </ion-range>
     </ion-item>
 
+    <!-- Nivel de ansiedad -->
+    <ion-item>
+      <ion-label>Nivel de ansiedad</ion-label>
+      <ion-range
+        [(ngModel)]="entry.nivel_ansiedad"
+        name="nivel_ansiedad"
+        min="0"
+        max="10"
+      >
+        <ion-label slot="start">0</ion-label>
+        <ion-label slot="end">10</ion-label>
+      </ion-range>
+    </ion-item>
+
+    <!-- Hidratación -->
+    <ion-item>
+      <ion-label>Nivel de hidratación</ion-label>
+      <ion-range
+        [(ngModel)]="entry.hidratacion"
+        name="hidratacion"
+        min="0"
+        max="10"
+      >
+        <ion-label slot="start">0</ion-label>
+        <ion-label slot="end">10</ion-label>
+      </ion-range>
+    </ion-item>
+
+    <!-- Ejercicio -->
     <ion-item>
       <ion-label>¿Hiciste ejercicio?</ion-label>
       <ion-toggle [(ngModel)]="entry.ejercicio" name="ejercicio"></ion-toggle>
     </ion-item>
 
+    <!-- Crisis de pánico -->
+    <ion-item>
+      <ion-label>¿Tuviste crisis de pánico?</ion-label>
+      <ion-toggle
+        [(ngModel)]="entry.crisis_panico"
+        name="crisis_panico"
+      ></ion-toggle>
+    </ion-item>
+
+    <!-- Medicación tomada -->
+    <ion-item>
+      <ion-label>¿Tomaste tu medicación?</ion-label>
+      <ion-toggle [(ngModel)]="entry.med_tomada" name="med_tomada"></ion-toggle>
+    </ion-item>
+
+    <!-- Botón para guardar -->
     <ion-button expand="block" type="submit" color="primary">
       Guardar
     </ion-button>
