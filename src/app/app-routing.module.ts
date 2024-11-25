@@ -35,6 +35,13 @@ const routes: Routes = [
       import('./pages/form/form.module').then((m) => m.FormPageModule),
   },
   {
+    path: 'visualizar',
+    loadChildren: () =>
+      import('./pages/visualizar/visualizar.module').then(
+        (m) => m.VisualizarPageModule
+      ),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./pages/not-found/not-found.module').then(

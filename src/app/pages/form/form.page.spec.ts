@@ -8,7 +8,7 @@ import { FormPage } from './form.page';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, FormPageRoutingModule],
-  declarations: [FormPage],
+
   schemas: [CUSTOM_ELEMENTS_SCHEMA], // Esto permite usar elementos personalizados
 })
 export class FormPageModule {}

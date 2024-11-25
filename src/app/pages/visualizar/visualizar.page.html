@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/tracker">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Mis Entradas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let entry of entries">
+      <ion-label>
+        <h2>Estado de ánimo: {{ entry.mood }}</h2>
+        <p>Fecha: {{ entry.date | date: 'short' }}</p>
+        <p>Horas dormidas: {{ entry.horas_dormidas }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
