@@ -15,14 +15,16 @@
   <header class="welcome-text">¡Qué bueno verte!</header>
 
   <!-- Selector de fecha -->
-  <ion-datetime
-    presentation="date"
-    [value]="selectedDate"
-    (ionChange)="onDateSelect($event)"
-    [highlightedDates]="highlightedDates"
-  >
-    <div slot="title">Selecciona una fecha</div>
-  </ion-datetime>
+  <div class="calendar-wrapper">
+    <ion-datetime
+      presentation="date"
+      [value]="selectedDate"
+      (ionChange)="onDateSelect($event)"
+      [highlightedDates]="highlightedDates"
+    >
+      <div slot="title">Selecciona una fecha</div>
+    </ion-datetime>
+  </div>
 
   <!-- Botones -->
   <div class="button-group">

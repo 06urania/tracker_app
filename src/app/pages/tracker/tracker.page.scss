@@ -14,3 +14,9 @@ mwl-calendar-month-view {
   font-family: "Georgia", serif;
   font-size: 50px;
 }
+
+.calendar-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
