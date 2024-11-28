@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/firebase/auth.service';
+import { EntryService } from 'src/app/firebase/entry.service';
+import { Entry } from 'src/app/models/entry.model';
 
 @Component({
   selector: 'app-tracker',
@@ -8,26 +9,38 @@ import { AuthService } from 'src/app/firebase/auth.service';
   styleUrls: ['./tracker.page.scss'],
 })
 export class TrackerPage implements OnInit {
-  constructor(private router: Router, private authService: AuthService) {}
-  // Define la fecha para el calendario
-  viewDate: Date = new Date(); // Fecha actual
-  ngOnInit() {}
+  selectedDate: string = new Date().toISOString();
+  entries: Entry[] = [];
+  highlightedDates: string[] = [];
 
-  // Método para navegar a la página del formulario
-  goToForm() {
-    this.router.navigate(['/form']); // Asegúrate de que esta ruta coincide con la configurada en `form-routing.module.ts`
-  }
-  onDayClicked(event: any) {
-    console.log('Día seleccionado:', event.date);
+  constructor(private entryService: EntryService, private router: Router) {}
+
+  ngOnInit() {
+    this.loadEntries();
   }
 
-  async logout() {
-    try {
-      await this.authService.logout();
-      console.log('Sesión cerrada correctamente');
-      this.router.navigate(['/login']);
-    } catch (error) {
-      console.error('Error al cerrar sesión:', error);
-    }
+  loadEntries() {
+    this.entryService.getEntries().subscribe((entries) => {
+      this.entries = entries;
+      this.updateHighlightedDates();
+    });
+  }
+
+  updateHighlightedDates() {
+    this.highlightedDates = this.entries.map((entry) => {
+      const date = new Date(entry.date);
+      return date.toISOString().split('T')[0];
+    });
+  }
+
+  onDateSelect(event: any) {
+    this.selectedDate = event.detail.value;
+    this.router.navigate(['/form'], {
+      queryParams: { date: this.selectedDate },
+    });
+  }
+
+  logout() {
+    // Implement logout functionality
   }
 }
