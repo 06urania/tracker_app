@@ -5,18 +5,39 @@
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Mis Entradas</ion-title>
+    <ion-title>Historial de Registros</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <ion-list>
-    <ion-item *ngFor="let entry of entries">
-      <ion-label>
-        <h2>Estado de ánimo: {{ entry.mood }}</h2>
-        <p>Fecha: {{ entry.date | date: 'short' }}</p>
-        <p>Horas dormidas: {{ entry.horas_dormidas }}</p>
-      </ion-label>
+    <ion-item *ngFor="let entry of entries" class="entry-item">
+      <ion-card class="entry-card">
+        <ion-card-header>
+          <ion-card-subtitle>{{ formatDate(entry.date) }}</ion-card-subtitle>
+          <ion-card-title>Estado de ánimo: {{ entry.mood }}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <p>🛏️ Horas dormidas: {{ entry.horas_dormidas }}</p>
+                <p>🎯 Concentración: {{ entry.nivel_focus }}/10</p>
+                <p>😰 Ansiedad: {{ entry.nivel_ansiedad }}/10</p>
+              </ion-col>
+              <ion-col size="6">
+                <p>💧 Hidratación: {{ entry.hidratacion }}/10</p>
+                <p>🏃 Ejercicio: {{ entry.ejercicio ? 'Sí' : 'No' }}</p>
+                <p>
+                  💊 Medicación: {{ entry.med_tomada ? 'Tomada' : 'No tomada' }}
+                </p>
+                <p>⚡ Crisis: {{ entry.crisis_panico ? 'Sí' : 'No' }}</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
     </ion-item>
   </ion-list>
 </ion-content>

@@ -1,22 +1,17 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Mi Calendario</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="logout()">
-        <ion-icon name="log-out-outline"></ion-icon>
-        Logout
-      </ion-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <!-- Texto de bienvenida -->
-  <header class="welcome-text">¡Qué bueno verte!</header>
+  <div class="welcome-container">
+    <h1 class="welcome-text">¡Qué bueno verte!</h1>
+  </div>
 
-  <!-- Selector de fecha -->
   <div class="calendar-wrapper">
     <ion-datetime
+      [locale]="locale"
       presentation="date"
       [value]="selectedDate"
       (ionChange)="onDateSelect($event)"
@@ -26,7 +21,6 @@
     </ion-datetime>
   </div>
 
-  <!-- Botones -->
   <div class="button-group">
     <ion-button
       expand="block"
@@ -34,6 +28,7 @@
       routerLink="/form"
       class="custom-button"
     >
+      <ion-icon slot="start" name="add-circle-outline"></ion-icon>
       Añadir entrada
     </ion-button>
 
@@ -43,7 +38,18 @@
       routerLink="/visualizar"
       class="custom-button"
     >
+      <ion-icon slot="start" name="list-outline"></ion-icon>
       Ver Mis Entradas
+    </ion-button>
+
+    <ion-button
+      expand="block"
+      color="danger"
+      (click)="logout()"
+      class="custom-button logout-button"
+    >
+      <ion-icon slot="start" name="log-out-outline"></ion-icon>
+      Cerrar Sesión
     </ion-button>
   </div>
 </ion-content>

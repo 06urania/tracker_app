@@ -8,7 +8,7 @@ import { EntryService } from 'src/app/firebase/entry.service';
   styleUrls: ['./visualizar.page.scss'],
 })
 export class VisualizarPage implements OnInit {
-  entries: Entry[] = []; // Aquí se almacenarán las entradas
+  entries: Entry[] = [];
 
   constructor(private entryService: EntryService) {}
 
@@ -18,7 +18,18 @@ export class VisualizarPage implements OnInit {
 
   loadEntries() {
     this.entryService.getEntries().subscribe((data: Entry[]) => {
-      this.entries = data;
+      this.entries = data.sort((a, b) => {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      });
+    });
+  }
+
+  formatDate(date: any): string {
+    return new Date(date).toLocaleDateString('es-ES', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
     });
   }
 }

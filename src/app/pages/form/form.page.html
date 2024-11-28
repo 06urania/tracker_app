@@ -12,6 +12,10 @@
 
 <img src="assets/images/adorno2.png" alt="" />
 <ion-content class="ion-padding">
+  <div class="date-display">
+    Registro para: {{ entry.date | date:'fullDate':'es-ES' }}
+  </div>
+
   <form (submit)="submitEntry()">
     <!-- Estado de ánimo -->
     <ion-item>
@@ -48,47 +52,50 @@
       </ion-select>
     </ion-item>
 
-    <!-- Nivel de concentración -->
+    <!-- Nivel de concentración actualizado -->
     <ion-item>
       <ion-label>Nivel de concentración</ion-label>
-      <ion-range
-        [(ngModel)]="entry.nivel_focus"
-        name="nivel_focus"
-        min="0"
-        max="10"
-      >
-        <ion-label slot="start">0</ion-label>
-        <ion-label slot="end">10</ion-label>
-      </ion-range>
+      <div class="range-value">{{ entry.nivel_focus }}/10</div>
     </ion-item>
+    <ion-range
+      [(ngModel)]="entry.nivel_focus"
+      name="nivel_focus"
+      min="0"
+      max="10"
+      step="1"
+      snaps="true"
+      ticks="true"
+    ></ion-range>
 
-    <!-- Nivel de ansiedad -->
+    <!-- Nivel de ansiedad actualizado -->
     <ion-item>
       <ion-label>Nivel de ansiedad</ion-label>
-      <ion-range
-        [(ngModel)]="entry.nivel_ansiedad"
-        name="nivel_ansiedad"
-        min="0"
-        max="10"
-      >
-        <ion-label slot="start">0</ion-label>
-        <ion-label slot="end">10</ion-label>
-      </ion-range>
+      <div class="range-value">{{ entry.nivel_ansiedad }}/10</div>
     </ion-item>
+    <ion-range
+      [(ngModel)]="entry.nivel_ansiedad"
+      name="nivel_ansiedad"
+      min="0"
+      max="10"
+      step="1"
+      snaps="true"
+      ticks="true"
+    ></ion-range>
 
-    <!-- Hidratación -->
+    <!-- Hidratación actualizado -->
     <ion-item>
       <ion-label>Nivel de hidratación</ion-label>
-      <ion-range
-        [(ngModel)]="entry.hidratacion"
-        name="hidratacion"
-        min="0"
-        max="10"
-      >
-        <ion-label slot="start">0</ion-label>
-        <ion-label slot="end">10</ion-label>
-      </ion-range>
+      <div class="range-value">{{ entry.hidratacion }}/10</div>
     </ion-item>
+    <ion-range
+      [(ngModel)]="entry.hidratacion"
+      name="hidratacion"
+      min="0"
+      max="10"
+      step="1"
+      snaps="true"
+      ticks="true"
+    ></ion-range>
 
     <!-- Ejercicio -->
     <ion-item>

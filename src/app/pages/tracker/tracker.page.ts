@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EntryService } from 'src/app/firebase/entry.service';
 import { Entry } from 'src/app/models/entry.model';
+import { AuthService } from 'src/app/firebase/auth.service';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+
+registerLocaleData(localeEs);
 
 @Component({
   selector: 'app-tracker',
@@ -12,8 +17,13 @@ export class TrackerPage implements OnInit {
   selectedDate: string = new Date().toISOString();
   entries: Entry[] = [];
   highlightedDates: string[] = [];
+  locale: string = 'es-ES';
 
-  constructor(private entryService: EntryService, private router: Router) {}
+  constructor(
+    private entryService: EntryService,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.loadEntries();
@@ -41,6 +51,8 @@ export class TrackerPage implements OnInit {
   }
 
   logout() {
-    // Implement logout functionality
+    this.authService.logout().then(() => {
+      this.router.navigate(['/login']);
+    });
   }
 }

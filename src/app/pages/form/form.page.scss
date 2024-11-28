@@ -1,1 +1,44 @@
+.date-display {
+  text-align: center;
+  padding: 15px;
+  font-size: 1.2em;
+  color: var(--ion-color-primary);
+  font-weight: bold;
+}
 
+ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  margin-bottom: 10px;
+}
+
+ion-label {
+  font-weight: 500;
+}
+
+.range-value {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 15px;
+  color: var(--ion-color-primary);
+  font-weight: bold;
+}
+
+ion-range {
+  padding: 0 15px;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+ion-button[type="submit"] {
+  margin: 20px 0;
+}
+
+ion-select {
+  width: 100%;
+  max-width: 200px;
+}

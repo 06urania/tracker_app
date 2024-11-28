@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EntryService } from 'src/app/firebase/entry.service';
 import { Entry } from 'src/app/models/entry.model';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+
+registerLocaleData(localeEs);
 
 @Component({
   selector: 'app-form',
@@ -43,7 +47,7 @@ export class FormPage implements OnInit {
       .addEntry(this.entry)
       .then(() => {
         console.log('Entrada registrada exitosamente');
-        this.router.navigate(['/tracker']); // Redirige al calendario después de guardar
+        this.router.navigate(['/visualizar']); // Changed from '/tracker' to '/visualizar'
       })
       .catch((error) => {
         console.error('Error al registrar la entrada:', error);
