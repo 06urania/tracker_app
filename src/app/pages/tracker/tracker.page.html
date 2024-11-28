@@ -1,17 +1,28 @@
-<ion-button
-  expand="block"
-  color="primary"
-  routerLink="/form"
-  class="custom-button"
->
-  Añadir entrada
-</ion-button>
-<ion-button expand="block" color="secondary" routerLink="/visualizar">
-  Ver Mis Entradas
-</ion-button>
-<ion-buttons slot="end">
-  <ion-button (click)="logout()">
-    <ion-icon name="log-out-outline"></ion-icon>
-    Logout
-  </ion-button>
-</ion-buttons>
+<ion-content>
+  <header class="welcome-text">¡Que bueno verte!</header>
+
+  <div class="button-group">
+    <ion-button
+      expand="block"
+      color="primary"
+      routerLink="/form"
+      class="custom-button"
+    >
+      Añadir entrada
+    </ion-button>
+    <ion-button
+      expand="block"
+      color="secondary"
+      routerLink="/visualizar"
+      class="custom-button"
+    >
+      Ver Mis Entradas
+    </ion-button>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        Logout
+      </ion-button>
+    </ion-buttons>
+  </div>
+</ion-content>

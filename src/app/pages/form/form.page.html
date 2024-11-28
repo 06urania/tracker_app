@@ -10,6 +10,7 @@
   </ion-toolbar>
 </ion-header>
 
+<img src="assets/images/adorno2.png" alt="" />
 <ion-content class="ion-padding">
   <form (submit)="submitEntry()">
     <!-- Estado de ánimo -->
@@ -28,12 +29,23 @@
     <!-- Horas dormidas -->
     <ion-item>
       <ion-label>Horas dormidas</ion-label>
-      <ion-input
+      <ion-select
         type="number"
         [(ngModel)]="entry.horas_dormidas"
         name="horas_dormidas"
-        placeholder="Ejemplo: 7"
-      ></ion-input>
+        placeholder="Selecciona"
+      >
+        <ion-select-option value="1">1 hora</ion-select-option>
+        <ion-select-option value="2">2 horas</ion-select-option>
+        <ion-select-option value="3">3 horas</ion-select-option>
+        <ion-select-option value="4">4 horas</ion-select-option>
+        <ion-select-option value="5">5 horas</ion-select-option>
+        <ion-select-option value="6">6 horas</ion-select-option>
+        <ion-select-option value="7">7 horas</ion-select-option>
+        <ion-select-option value="8">8 horas</ion-select-option>
+        <ion-select-option value="9">9 horas</ion-select-option>
+        <ion-select-option value="10">10 o más horas</ion-select-option>
+      </ion-select>
     </ion-item>
 
     <!-- Nivel de concentración -->

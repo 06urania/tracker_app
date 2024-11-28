@@ -1,1 +1,18 @@
+ion-content.inicio-content {
+  --background: #1f1b24; /* Cambia el fondo del ion-content */
+}
 
+::ng-deep ion-button.custom-button {
+  --background: #9364d5 !important;
+  --color: white !important;
+  --font-family: helvetica, sans-serif;
+}
+
+.welcome-text {
+  font-family: "Georgia", serif;
+  font-size: 50px;
+}
+
+.subtitle-text {
+  font-family: "helvetica", sans-serif;
+}
